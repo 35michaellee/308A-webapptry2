@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SearchFor</title>
+    <link rel="stylesheet" href="styles.css">
+    <script type="module" src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  
+
+</head>
+<body>
+    <nav class="navbar">
+        <button id="toggleButton" >Toggle Search</button>
+    </nav>
+    <div id="dogFinder" class="right" >
+   
+    <p id="tiny">I did this beacuse I had to find an api that had a put and post</p>
+
+    <form id="dogTypeForm" action="#" method="post">
+    <h2 >Select a Breed</h2>
+    <select
+      id="breedSelect"
+      style="width: 300px;"
+    >
+    </select>
+    <input type="submit" value="Submit">
+    <div>
+      <button id="getFavouritesBtn">
+        Get Favorites
+      </button>
+    </div></form>
+
+    <!-- Results will be displayed here -->
+    <div id="dogTypeResult"></div>
+</div>
+
+
+
+
+    <div id="recipeFinder" class="hidden left" >
+    <h1>Welcome to the recipe Finder</1>
+    <h2>Select Your Favorite Cuisine</h2>
+    
+    <form id="cuisineForm" action="#" >
+        <label for="cuisine">Choose a Cuisine:</label>
+        <select id="cuisine" name="cuisine">
+            <option value="italian">Italian</option>
+            <option value="mexican">Mexican</option>
+            <option value="chinese">Chinese</option>
+            <option value="indian">Indian</option>
+            <option value="japanese">Japanese</option>
+            <!-- Add more cuisine options as needed -->
+        </select>
+
+        <br><br>
+
+        <input type="submit" value="Submit">
+    </form>
+    <div id="recipeContainer" >
+        <p>Visit the Spoonacular API page:</p>
+        <a href="https://rapidapi.com/spoonacular/api/recipe-food-nutrition" target="_blank">Spoonacular API Page</a>
+    </div>
+    </div>
+        <script type="module" src="./index.js"></script>
+        
+    
+</body>
+</html>

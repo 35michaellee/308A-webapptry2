@@ -1,0 +1,35 @@
+/* Add a 'hidden' class in your CSS with display: none */
+.hidden {
+    display: none;
+}
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar {
+    background-color: #3498db; /* Blue background color */
+    padding: 10px;
+    text-align: center;
+}
+
+#toggleButton {
+    background-color: white; /* White background color for the button */
+    color: #3498db; /* Blue text color */
+    border: none;
+    padding: 5px 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
+#recipeFinder{
+    margin-left:50%;
+    height: 100%; 
+    width: 50%; /* Adjust the width as needed */
+    background-color: #f0f0f0; 
+    overflow-y: auto; /* Add scroll if content overflows */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); 
+}
+#tiny{
+    font-size: .25em;
+}
