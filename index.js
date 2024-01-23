@@ -18,7 +18,7 @@ const options = {
 
 // Import modules
 import { toggleForms } from './toggleForms.js';
-import { fetchBreeds, initialLoad } from './dogAPI.js';
+import { fetchBreeds, initialLoad, handleDogFormSubmit } from './dogAPI.js';
 import { handleCuisineFormSubmit } from './cuisineForm.js';
 import { renderResults } from './renderResults.js'; // Add this line
 
@@ -33,15 +33,6 @@ document.getElementById('cuisineForm').addEventListener('submit', handleCuisineF
 
 
 //dogtypeform submitt
-document.getElementById('dogTypeForm').addEventListener('submit', function (event) {
-    event.preventDefault();
-
-    // Get the selected dog type value
-    var selectedDogType = document.getElementById('dogType').value;
-
-    // Display the selected dog type
-    var resultContainer = document.getElementById('dogTypeResult');
-    resultContainer.innerHTML = `<p>You selected: ${selectedDogType}</p>`;
-});
+document.getElementById('breedSelect').addEventListener('change', handleDogFormSubmit); 
 
 

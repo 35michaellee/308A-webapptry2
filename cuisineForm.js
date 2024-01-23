@@ -9,6 +9,12 @@ const options = {
     headers: {
         'X-RapidAPI-Key': '9031173153msh3c2311613afec70p1e00a9jsn508c4514c1dc',
         'X-RapidAPI-Host': 'spoonacular-recipe-food-nutrition-v1.p.rapidapi.com'
+    },
+    params: {
+        query: 'salad',
+        cuisine: 'italian',
+        instructionsRequired: 'true',
+        addRecipeInformation: 'true',
     }
 };
 
