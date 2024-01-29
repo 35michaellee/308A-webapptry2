@@ -1,10 +1,10 @@
 
 import { renderResultsDog } from './renderResultsDog.js';
-const apiKey = "live_IFow6B5q1w9kKsLSb4t7cOV0d1WzrM2CiNDRwTNtsIbt2H1zzULux4mBxOWeWebu";
+const apiKey = "live_lgcVfQzkyYMHGaNFqZ4jvVRXrraQqMHGpk3qimY2PaZXWgzvHWYrzZJnpVqwDvZN";
 
 
 axios.defaults.headers.common["x-api-key"] =
-  "live_XpOmzl4ceu5cTZUci3VCwCDlwaR1Q6dSkORcrUG7NRqtJsf82yWkFB7v2htb6fl5";
+  apiKey;
 axios.defaults.baseURL = "https://api.thedogapi.com/v1";
 
 
@@ -20,10 +20,10 @@ export async function fetchBreedImages(selectedBreedId) {
         // Log the request URL string
         const requestUrl = axios.getUri({ url: '/images/search', params });
     
-        console.log(requestUrl+"&api_key="+apiKey,response.data);
+        console.log("requested images at "+requestUrl+"&api_key="+apiKey,response.data);
         return response.data;
       } catch (error) {
-        console.error("Error fetching Australian Terrier images:", error);
+        console.error("Error fetching images:", error.message);
         throw error;
       }
     }
@@ -42,6 +42,7 @@ export async function fetchBreeds() {
 // Initial load
 export async function initialLoad() {
     try {
+        console.log("doing initial load");
         const breeds = await fetchBreeds();
         breeds.forEach(breed => {
             const option = document.createElement("option");
@@ -67,7 +68,7 @@ export async function handleDogFormSubmit(event) {
     // Fetch breed images and handle results
     try {
         let images = await fetchBreedImages(selectedText);
-        //console.log(images);
+        console.log(images);
 
         // Render results with selected text and images
         renderResultsDog(selectedText, images);
@@ -75,7 +76,51 @@ export async function handleDogFormSubmit(event) {
         console.error('Error handling dog form submit:', error);
         // Handle the error appropriately
     }
-}
+};
+
+
+export async function handleFavouritesBtnClick() {
+    try {
+        // Fetch favourites
+        const response = await axios.get('/favourites');
+        const favourites = response.data;
+        console.log('Favourites:', favourites);
+
+        // Perform additional actions with the fetched favourites if needed
+
+        // Delete a specific favourite (replace 'id-of-favourite-to-delete' with the actual ID)
+        const favouriteIdToDelete = 'id-of-favourite-to-delete';
+        const deleteResponse = await axios.delete(`/favourites/${favouriteIdToDelete}`);
+        
+        if (deleteResponse.status === 200) {
+            console.log('Favourite deleted successfully.');
+        } else {
+            console.error('Failed to delete favourite:', deleteResponse.status, deleteResponse.statusText);
+        }
+    } catch (error) {
+        console.error('Error fetching or deleting favourites:', error);
+        // Handle the error appropriately
+        throw error;
+    }
+};
+      //const favorites = response.data;
+    //   // console.log("favorites", favorites);
+  
+    //   // Clear the carousel
+    //   Carousel.clear();
+    //   Carousel.start(); //idk
+  
+    //   // Build and display the favorites in the carousel
+    //   favorites.forEach((obj) => {
+    //     console.log("favorite", obj.image.url, "favorite" + obj.image_id);
+    //     Carousel.createCarouselItem(
+    //       obj.image.url,
+    //       "favorite" + obj.image_id,
+    //       obj.image_id
+    //     );
+    //   });
+    
+
 
 
 // import {renderResultsDog} from './renderResultsDog.js';

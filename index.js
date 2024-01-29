@@ -18,7 +18,7 @@ const options = {
 
 // Import modules
 import { toggleForms } from './toggleForms.js';
-import { fetchBreeds, initialLoad, handleDogFormSubmit } from './dogAPI.js';
+import { handleFavouritesBtnClick,fetchBreeds, initialLoad, handleDogFormSubmit } from './dogAPI.js';
 import { handleCuisineFormSubmit } from './cuisineForm.js';
 import { renderResults } from './renderResults.js'; // Add this line
 
@@ -34,5 +34,11 @@ document.getElementById('cuisineForm').addEventListener('submit', handleCuisineF
 
 //dogtypeform submitt
 document.getElementById('breedSelect').addEventListener('change', handleDogFormSubmit); 
+//dogtypeform submitt
+
+//get favorites button 
+
+document.getElementById('getFavouritesBtn').addEventListener('click', handleFavouritesBtnClick);
+
 
 
